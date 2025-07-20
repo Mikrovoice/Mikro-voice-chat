@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #4fb2f7; /* Sky blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    text-align: center;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.app-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007aff;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-btn {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.google-btn {
+    background: #ffffff;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.mikro-btn {
+    background: #007aff;
+    color: #fff;
+}
+
+.login-btn:hover {
+    opacity: 0.8;
+}
