@@ -1,57 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #4fb2f7; /* Sky blue */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background: #49b8f5; /* Sky blue */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login-container {
-    text-align: center;
-    background: white;
-    padding: 40px 20px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    width: 90%;
-    max-width: 400px;
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
 }
 
-.app-title {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: #007aff;
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.app-name {
+  font-size: 28px;
+  color: #007aff;
+  margin-bottom: 30px;
 }
 
-.login-btn {
-    padding: 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.google-btn {
-    background: #ffffff;
-    color: #000;
-    border: 2px solid #000;
+.btn {
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: block;
 }
 
-.mikro-btn {
-    background: #007aff;
-    color: #fff;
+.google {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
 }
 
-.login-btn:hover {
-    opacity: 0.8;
+.google:hover {
+  background: #f0f0f0;
+}
+
+.mikro {
+  background: #007aff;
+  color: #fff;
+}
+
+.mikro:hover {
+  background: #005fc9;
 }
