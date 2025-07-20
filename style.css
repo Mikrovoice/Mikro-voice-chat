@@ -1,69 +1,73 @@
+/* Reset and font */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  background: #49b8f5; /* Sky blue */
+  background-color: #46b5f6; /* Yoso style sky blue */
+  font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container {
+/* Outer container */
+.login-screen {
   width: 100%;
-  max-width: 400px;
   padding: 20px;
 }
 
-.card {
+.login-box {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 40px 20px;
+  padding: 40px 25px;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* App name */
 .app-name {
-  font-size: 28px;
   color: #007aff;
-  margin-bottom: 30px;
+  font-size: 30px;
+  margin-bottom: 35px;
+  font-weight: bold;
 }
 
-.buttons {
+/* Buttons */
+.button-section {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .btn {
-  text-decoration: none;
   padding: 15px;
-  border-radius: 10px;
-  font-weight: bold;
   font-size: 16px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
   display: block;
 }
 
-.google {
-  background: #fff;
-  color: #000;
-  border: 2px solid #000;
+.google-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
 }
 
-.google:hover {
+.google-btn:hover {
   background: #f0f0f0;
 }
 
-.mikro {
+.mikro-btn {
   background: #007aff;
-  color: #fff;
+  color: #ffffff;
 }
 
-.mikro:hover {
-  background: #005fc9;
+.mikro-btn:hover {
+  background: #005fcc;
 }
