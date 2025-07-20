@@ -1,432 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Mikro Voice Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #5d2a00, #a85f00);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background: #f8f2e5;
     }
 
-    .container {
-      padding-top: 100px;
+    /* Pages hide by default */
+    .login-page, .home-page {
+      display: none;
     }
 
-    .logo {
-      width: 120px;
-      height: 120px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png');
-      background-size: cover;
-      border-radius: 30px;
-      margin: 0 auto 20px;
+    .active {
+      display: block;
     }
 
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 20px;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .btn {
+    /* Login Page */
+    .login-container {
+      background: #00bfff;
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 260px;
-      margin: 15px auto;
-      padding: 15px;
-      border-radius: 30px;
+      color: white;
+    }
+
+    .login-container h1 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .login-button {
+      padding: 15px 30px;
+      margin: 10px;
       font-size: 16px;
-      font-weight: bold;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-    }
-
-    .google-btn {
-      background: linear-gradient(to right, #f9a825, #fbc02d);
-      color: black;
-    }
-
-    .account-btn {
       background: white;
-      color: black;
-      border: 2px solid #ccc;
+      color: #00bfff;
+      font-weight: bold;
     }
 
-    .btn img {
-      width: 24px;
-      height: 24px;
+    /* Home Page */
+    .top-banner {
+      background: url('images/banner.jpg') center/cover no-repeat;
+      height: 160px;
+      text-align: center;
+      padding-top: 20px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .room-list {
+      padding: 10px;
+    }
+
+    .room-card {
+      background: #fff6df;
+      border: 2px solid #d1aa53;
+      margin-bottom: 10px;
+      padding: 10px;
+      display: flex;
+      border-radius: 12px;
+      align-items: center;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .room-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
       margin-right: 10px;
     }
 
-    .footer {
-      font-size: 12px;
-      margin-top: 50px;
-      color: #ffcc80;
+    .room-info {
+      flex-grow: 1;
     }
 
-    .footer a {
-      color: #ffee58;
-      text-decoration: none;
-    }
-
-    .checkmark {
-      color: orange;
+    .room-name {
+      font-size: 18px;
       font-weight: bold;
-      margin-right: 5px;
+    }
+
+    .room-desc {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .room-id {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .entry-fee {
+      background: gold;
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="logo"></div>
-    <div class="title">Make new friends all over the world</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mikro Voice Chat</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #5d2a00, #a85f00);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
-    }
-
-    .container {
-      padding-top: 100px;
-    }
-
-    .logo {
-      width: 120px;
-      height: 120px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png');
-      background-size: cover;
-      border-radius: 30px;
-      margin: 0 auto 20px;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 20px;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 260px;
-      margin: 15px auto;
-      padding: 15px;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .google-btn {
-      background: linear-gradient(to right, #f9a825, #fbc02d);
-      color: black;
-    }
-
-    .account-btn {
-      background: white;
-      color: black;
-      border: 2px solid #ccc;
-    }
-
-    .btn img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    .footer {
-      font-size: 12px;
-      margin-top: 50px;
-      color: #ffcc80;
-    }
-
-    .footer a {
-      color: #ffee58;
-      text-decoration: none;
-    }
-
-    .checkmark {
-      color: orange;
-      font-weight: bold;
-      margin-right: 5px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="logo"></div>
-    <div class="title">Make new friends all over the world</div>
-
-    <div class="btn google-btn">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" />
-      Sign in with Google
-    </div>
-
-    <div class="btn account-btn">
-      <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="User Icon" />
-      Mikro Voice Chat Login
-    </div>
-
-    <div class="footer">
-      <span class="checkmark">✔</span> By logging in you agree to our <a href="#">Privacy Policy</a> & <a href="#">Terms of Service</a>
-    </div>
-  </div><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mikro Voice Chat</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #5d2a00, #a85f00);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
-    }
-
-    .container {
-      padding-top: 100px;
-    }
-
-    .logo {
-      width: 120px;
-      height: 120px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png');
-      background-size: cover;
-      border-radius: 30px;
-      margin: 0 auto 20px;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 20px;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 260px;
-      margin: 15px auto;
-      padding: 15px;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .google-btn {
-      background: linear-gradient(to right, #f9a825, #fbc02d);
-      color: black;
-    }
-
-    .account-btn {
-      background: white;
-      color: black;
-      border: 2px solid #ccc;
-    }
-
-    .btn img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    .footer {
-      font-size: 12px;
-      margin-top: 50px;
-      color: #ffcc80;
-    }
-
-    .footer a {
-      color: #ffee58;
-      text-decoration: none;
-    }
-
-    .checkmark {
-      color: orange;
-      font-weight: bold;
-      margin-right: 5px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="logo"></div>
-    <div class="title">Make new friends all over the world</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mikro Voice Chat</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #5d2a00, #a85f00);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
-    }
-
-    .container {
-      padding-top: 100px;
-    }
-
-    .logo {
-      width: 120px;
-      height: 120px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png');
-      background-size: cover;
-      border-radius: 30px;
-      margin: 0 auto 20px;
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 20px;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 260px;
-      margin: 15px auto;
-      padding: 15px;
-      border-radius: 30px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .google-btn {
-      background: linear-gradient(to right, #f9a825, #fbc02d);
-      color: black;
-    }
-
-    .account-btn {
-      background: white;
-      color: black;
-      border: 2px solid #ccc;
-    }
-
-    .btn img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    .footer {
-      font-size: 12px;
-      margin-top: 50px;
-      color: #ffcc80;
-    }
-
-    .footer a {
-      color: #ffee58;
-      text-decoration: none;
-    }
-
-    .checkmark {
-      color: orange;
-      font-weight: bold;
-      margin-right: 5px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="logo"></div>
-    <div class="title">Make new friends all over the world</div>
-
-    <div class="btn google-btn">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" />
-      Sign in with Google
-    </div>
-
-    <div class="btn account-btn">
-      <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="User Icon" />
-      Mikro Voice Chat Login
-    </div>
-
-    <div class="footer">
-      <span class="checkmark">✔</span> By logging in you agree to our <a href="#">Privacy Policy</a> & <a href="#">Terms of Service</a>
+  <!-- Login Page -->
+  <div class="login-page active" id="loginPage">
+    <div class="login-container">
+      <h1>Mikro Voice Chat</h1>
+      <button class="login-button" onclick="goToHome()">Sign in with Google</button>
+      <button class="login-button" onclick="goToHome()">YoSo Account Login</button>
     </div>
   </div>
 
-</body>
-</html>
-
-    <div class="btn google-btn">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" />
-      Sign in with Google
-    </div>
-
-    <div class="btn account-btn">
-      <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="User Icon" />
-      Mikro Voice Chat Login
-    </div>
-
-    <div class="footer">
-      <span class="checkmark">✔</span> By logging in you agree to our <a href="#">Privacy Policy</a> & <a href="#">Terms of Service</a>
-    </div>
-  </div>
-
-</body>
-</html>
-
-
-</body>
-</html>
-
-    <div class="btn google-btn">
-      <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" />
-      Sign in with Google
-    </div>
-
-    <div class="btn account-btn">
-      <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="User Icon" />
-      Mikro Voice Chat Login
-    </div>
-
-    <div class="footer">
-      <span class="checkmark">✔</span> By logging in you agree to our <a href="#">Privacy Policy</a> & <a href="#">Terms of Service</a>
+  <!-- Home Page -->
+  <div class="home-page" id="homePage">
+    <div class="top-banner">Welcome to Mikro Voice Chat</div>
+    <div class="room-list">
+      <div class="room-card">
+        <img class="room-logo" src="images/room1.png" alt="Room Logo">
+        <div class="room-info">
+          <div class="room-name">Music Lounge</div>
+          <div class="room-desc">Feel the beat 🎵</div>
+          <div class="room-id">Room ID: 12345</div>
+        </div>
+        <div class="entry-fee">10 Coins</div>
+      </div>
+      <div class="room-card">
+        <img class="room-logo" src="images/room2.png" alt="Room Logo">
+        <div class="room-info">
+          <div class="room-name">Chill Zone</div>
+          <div class="room-desc">Relax & Talk 💬</div>
+          <div class="room-id">Room ID: 67890</div>
+        </div>
+        <div class="entry-fee">Free</div>
+      </div>
+      <!-- Aur bhi room add kar sakte ho -->
     </div>
   </div>
+
+  <script>
+    function goToHome() {
+      document.getElementById("loginPage").classList.remove("active");
+      document.getElementById("homePage").classList.add("active");
+    }
+  </script>
 
 </body>
 </html>
